@@ -7,8 +7,12 @@
         <li class="item"><router-link to="#">Customers</router-link></li>
         <li class="item"><router-link to="#">Movies</router-link></li>
         <div class="align-right">
-          <li class="item"><router-link to="#">Register</router-link></li>
-          <li class="item"><router-link to="/login">Login</router-link></li>
+          <li class="item">
+            <router-link to="/register">Register</router-link>
+          </li>
+          <li class="item">
+            <router-link to="/login">Login</router-link>
+          </li>
         </div>
       </ul>
     </nav>
