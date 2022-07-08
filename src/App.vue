@@ -1,30 +1,46 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div class="app">
+    <nav class="nav">
+      <ul class="menu">
+        <li class="logo item"><router-link to="/">Vidly</router-link></li>
+        <li class="item"><router-link to="#">New Rentals</router-link></li>
+        <li class="item"><router-link to="#">Customers</router-link></li>
+        <li class="item"><router-link to="#">Movies</router-link></li>
+        <div class="align-right">
+          <li class="item"><router-link to="#">Register</router-link></li>
+          <li class="item"><router-link to="/login">Login</router-link></li>
+        </div>
+      </ul>
+    </nav>
+    <div class="main-page">
+      <router-view />
+    </div>
   </div>
-  <router-view />
 </template>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<style scoped>
+.nav {
+  background: #203647;
+  margin-bottom: 10px;
 }
-
-#nav {
-  padding: 30px;
+/* Applies to router links */
+.nav a {
+  color: white;
+  text-decoration: none;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+.nav .menu {
+  display: flex;
+  list-style-type: none;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.nav .logo {
+  font-size: 30px;
+}
+.nav .item {
+  margin: 10px;
+  align-self: center;
+}
+.align-right {
+  display: flex;
+  margin-left: auto;
 }
 </style>
