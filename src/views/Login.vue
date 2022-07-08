@@ -32,7 +32,7 @@ export default defineComponent({
 }
 
 .container .form {
-  color: white;
+  color: var(--ShadowLightBlue);
   min-height: 400px;
   min-width: 400px;
   display: flex;
@@ -46,8 +46,20 @@ export default defineComponent({
   width: 100%;
 }
 
-.row input {
+input {
   width: 100%;
   padding: 10px;
+}
+
+input[type="submit"] {
+  background-color: var(--ShadowDarkBlue);
+  color: var(--ShadowLightBlue);
+  border-color: var(--LightestBlue);
+}
+
+input[type="text"],
+input[type="password"] {
+  background-color: var(--ShadowDarkBlue);
+  color: var(--ShadowLightBlue);
 }
 </style>

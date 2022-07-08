@@ -4,6 +4,14 @@
  * https://hookagency.com/blog/website-color-schemes/
  */
 
+:root {
+  --DarkBlue: #12232e;
+  --LighterBlue: #007cc7;
+  --LightestBlue: #4da8da;
+  --ShadowDarkBlue: #203647;
+  --ShadowLightBlue: #eefbfb;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -11,7 +19,7 @@ body {
   font-family: sans-serif;
   height: 100%;
   min-height: 100vh;
-  background-color: #12232e;
+  background-color: var(--DarkBlue);
 }
 
 .app {

@@ -20,12 +20,12 @@
 
 <style scoped>
 .nav {
-  background: #203647;
+  background: var(--ShadowDarkBlue);
   margin-bottom: 10px;
 }
 /* Applies to router links */
 .nav a {
-  color: white;
+  color: var(--ShadowLightBlue);
   text-decoration: none;
 }
 .nav .menu {
