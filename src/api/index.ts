@@ -1,10 +1,15 @@
-import axios, { Axios, AxiosResponse } from "axios";
-import { UserRegister, UserRegisterResponse } from "@/models/user";
+import axios, { AxiosResponse } from "axios";
+import { UserRegister, UserRegisterResponse, UserLogin, RegistrationError } from "@/models/user";
 
 // Move to dotenv
-const BASE_URL = /*process.env.VUE_APP_BACKEND_URL + */ "/api";
+const BASE_URL = "/api";
 
-export const registerUser = (user: UserRegister): Promise<AxiosResponse> => {
-  console.log(process.env.VUE_APP_BACKEND_URL);
+export const registerUser = (
+  user: UserRegister
+): Promise<AxiosResponse<UserRegisterResponse, RegistrationError>> => {
   return axios.post<UserRegisterResponse>(`${BASE_URL}/Auth/register/`, user);
+};
+
+export const loginUser = (user: UserLogin): Promise<AxiosResponse> => {
+  return axios.post(`${BASE_URL}/auth/login/`, user);
 };

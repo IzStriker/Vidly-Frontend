@@ -5,6 +5,12 @@ export type UserRegister = {
   firstName: string;
   lastName: string;
 };
+
+export type UserLogin = {
+  email: string;
+  password: string;
+};
+
 export type RegistrationError = {
   code?: string;
   description: string;
