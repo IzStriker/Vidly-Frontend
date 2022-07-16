@@ -39,12 +39,12 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import { UserRegister, RegistrationError } from "@/models/user";
-import { registerUser } from "@/api";
+import { defineComponent } from 'vue';
+import { UserRegister, RegistrationError } from '@/models/user';
+import { registerUser } from '@/api';
 
 export default defineComponent({
-  name: "Register",
+  name: 'Register',
   data() {
     return {
       formData: {} as UserRegister,
@@ -57,14 +57,14 @@ export default defineComponent({
       this.errors = [];
       if (this.formData.password !== this.formData.confirmPassword) {
         this.errors.push({
-          description: "Password and Confirm Password must match",
+          description: 'Password and Confirm Password must match',
         });
         return;
       }
 
       try {
         await registerUser(this.formData);
-        this.$router.push("/login");
+        this.$router.push('/login');
       } catch (error: any) {
         if (error.response.data.message) {
           this.errors.push({ description: error.response.data.message });

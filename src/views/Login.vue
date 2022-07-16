@@ -18,16 +18,16 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import { UserLogin } from "@/models/user";
-import { loginUser } from "@/api";
+import { defineComponent } from 'vue';
+import { UserLogin } from '@/models/user';
+import { loginUser } from '@/api';
 
 export default defineComponent({
-  name: "Login",
+  name: 'Login',
   data() {
     return {
       formData: {} as UserLogin,
-      errorMessage: "" as string,
+      errorMessage: '' as string,
     };
   },
   methods: {
