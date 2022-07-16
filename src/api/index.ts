@@ -1,17 +1,10 @@
 import axios, { AxiosResponse } from 'axios';
-import {
-  UserRegister,
-  UserRegisterResponse,
-  UserLogin,
-  RegistrationError,
-} from '@/models/user';
+import { UserRegister, UserRegisterResponse, UserLogin } from '@/models/user';
 
 // Move to dotenv
 const BASE_URL = '/api';
 
-export const registerUser = (
-  user: UserRegister,
-): Promise<AxiosResponse<UserRegisterResponse, RegistrationError>> => {
+export const registerUser = (user: UserRegister): Promise<AxiosResponse> => {
   return axios.post<UserRegisterResponse>(`${BASE_URL}/Auth/register/`, user);
 };
 
