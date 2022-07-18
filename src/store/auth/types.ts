@@ -14,10 +14,12 @@ export type UserType = {
 export enum AuthActions {
   REGISTER = 'Register',
   LOGIN = 'Login',
+  LOGOUT = 'Logout',
 }
 
 export enum AuthMutations {
   LOGIN = 'Login',
+  LOGOUT = 'Logout',
 }
 
 export enum AuthGetters {

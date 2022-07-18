@@ -12,6 +12,9 @@
               {{ userSummary }}
             </router-link>
           </li>
+          <li class="item">
+            <a href="#" @click="Logout">Sign out</a>
+          </li>
         </div>
         <div class="align-right" v-else>
           <li class="item">
@@ -30,12 +33,15 @@
 </template>
 
 <script lang="ts">
-import { AuthGetters } from '@/store/auth/types';
+import { AuthActions, AuthGetters } from '@/store/auth/types';
 import { defineComponent } from 'vue';
-import { mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex';
 export default defineComponent({
   computed: {
     ...mapGetters([AuthGetters.AUTHENTICATED, AuthGetters.USER_SUMMARY]),
+  },
+  methods: {
+    ...mapActions([AuthActions.LOGOUT]),
   },
 });
 </script>

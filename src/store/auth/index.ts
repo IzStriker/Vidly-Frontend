@@ -29,6 +29,11 @@ const mutations: MutationTree<AuthState> = {
     state.user = payload.user;
     state.authenticated = true;
   },
+  [AuthMutations.LOGOUT](state: AuthState) {
+    state.token = '';
+    state.authenticated = false;
+    state.user = {} as UserType;
+  },
 };
 
 const actions: ActionTree<AuthState, RootState> = {
@@ -47,6 +52,10 @@ const actions: ActionTree<AuthState, RootState> = {
     const res = await loginUser(payload);
     router.push(pages.Home.path);
     context.commit(AuthMutations.LOGIN, res.data);
+  },
+  [AuthActions.LOGOUT](context: ActionContext<AuthState, RootState>) {
+    context.commit(AuthMutations.LOGOUT);
+    router.push(pages.Login.path);
   },
 };
 
