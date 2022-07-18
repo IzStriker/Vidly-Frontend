@@ -14,3 +14,7 @@ export enum AuthActions {
   REGISTER = 'Register',
   LOGIN = 'Login',
 }
+
+export enum AuthMutations {
+  LOGIN = 'Login',
+}

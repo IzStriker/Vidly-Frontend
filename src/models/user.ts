@@ -1,3 +1,5 @@
+import { UserType } from '@/store/auth/types';
+
 export type UserRegister = {
   email: string;
   password: string;
@@ -20,4 +22,10 @@ export type UserRegisterResponse = {
   Status: string;
   Message?: string;
   Errors?: RegistrationError[];
+};
+
+export type UserLoginResponse = {
+  token: string;
+  expiration: string;
+  user: UserType;
 };

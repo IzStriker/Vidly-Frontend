@@ -1,7 +1,11 @@
 import axios, { AxiosResponse } from 'axios';
-import { UserRegister, UserRegisterResponse, UserLogin } from '@/models/user';
+import {
+  UserRegister,
+  UserRegisterResponse,
+  UserLogin,
+  UserLoginResponse,
+} from '@/models/user';
 
-// Move to dotenv
 const BASE_URL = '/api';
 
 export const registerUser = (user: UserRegister): Promise<AxiosResponse> => {
@@ -9,5 +13,5 @@ export const registerUser = (user: UserRegister): Promise<AxiosResponse> => {
 };
 
 export const loginUser = (user: UserLogin): Promise<AxiosResponse> => {
-  return axios.post(`${BASE_URL}/auth/login/`, user);
+  return axios.post<UserLoginResponse>(`${BASE_URL}/auth/login/`, user);
 };
