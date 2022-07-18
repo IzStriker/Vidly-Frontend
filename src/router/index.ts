@@ -2,27 +2,29 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import Home from '../views/Home.vue';
 import Login from '@/views/Login.vue';
 import Register from '@/views/Register.vue';
+import { IRoutes, RouteNames } from '@/router/types';
 
-// TODO: Refactor to use objects
-// So to push to page can use object like push(Pages.Login)
-
-const routes: Array<RouteRecordRaw> = [
-  {
+// Allow reference to routes without magic strings.
+export const pages: IRoutes = {
+  Home: {
     path: '/',
-    name: 'Home',
+    name: RouteNames.Home,
     component: Home,
   },
-  {
+  Login: {
     path: '/login',
-    name: 'Login',
+    name: RouteNames.Login,
     component: Login,
   },
-  {
+  Register: {
     path: '/register',
-    name: 'Register',
+    name: RouteNames.Register,
     component: Register,
   },
-];
+};
+
+// Convert pages into array of routes like traditional implementation of routes in vue-router
+const routes: Readonly<RouteRecordRaw[]> = Object.values(pages);
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),

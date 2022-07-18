@@ -36,7 +36,6 @@ export default defineComponent({
 
       try {
         let res = await loginUser(this.formData);
-        console.log(res);
       } catch (error) {
         console.log(error);
       }

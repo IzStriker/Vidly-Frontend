@@ -3,7 +3,7 @@ import { RootState } from '../types';
 import { ActionContext, ActionTree, Module } from 'vuex';
 import { registerUser } from '@/api';
 import { UserRegister } from '@/models/user';
-import router from '@/router';
+import router, { pages } from '@/router';
 
 const state: AuthState = {
   token: '',
@@ -21,7 +21,7 @@ const actions: ActionTree<AuthState, RootState> = {
     payload: UserRegister,
   ) {
     await registerUser(payload);
-    router.push('/login');
+    router.push(pages.Login.path);
   },
 };
 

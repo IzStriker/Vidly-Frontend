@@ -43,7 +43,6 @@ import { defineComponent } from 'vue';
 import { UserRegister, RegistrationError } from '@/models/user';
 import { mapActions } from 'vuex';
 import { ActionTypes } from '@/store/auth/types';
-import { AxiosError } from 'axios';
 
 export default defineComponent({
   name: 'Register',
