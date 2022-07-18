@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form class="form" @submit="onSubmit">
+    <form class="form" @submit.prevent="onSubmit">
       <h1>Register</h1>
       <div class="input-next-input">
         <div style="margin-right: 2px">
@@ -41,19 +41,21 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { UserRegister, RegistrationError } from '@/models/user';
-import { registerUser } from '@/api';
+import { mapActions } from 'vuex';
+import { ActionTypes } from '@/store/auth/types';
+import { AxiosError } from 'axios';
 
 export default defineComponent({
   name: 'Register',
   data() {
     return {
       formData: {} as UserRegister,
-      errors: {} as RegistrationError[],
+      errors: [] as RegistrationError[],
     };
   },
   methods: {
-    async onSubmit(e: Event) {
-      e.preventDefault();
+    ...mapActions([ActionTypes.REGISTER]),
+    async onSubmit() {
       this.errors = [];
       if (this.formData.password !== this.formData.confirmPassword) {
         this.errors.push({
@@ -63,8 +65,7 @@ export default defineComponent({
       }
 
       try {
-        await registerUser(this.formData);
-        this.$router.push('/login');
+        await this.REGISTER(this.formData);
       } catch (error: any) {
         if (error.response.data.message) {
           this.errors.push({ description: error.response.data.message });

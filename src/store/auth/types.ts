@@ -9,3 +9,7 @@ export type UserType = {
   lastname: string;
   email: string;
 };
+
+export enum ActionTypes {
+  REGISTER = 'REGISTER',
+}
