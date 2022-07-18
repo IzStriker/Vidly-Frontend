@@ -46,11 +46,7 @@ t
   background: var(--ShadowDarkBlue);
   margin-bottom: 10px;
 }
-/* Applies to router links */
-.nav a {
-  color: var(--ShadowLightBlue);
-  text-decoration: none;
-}
+
 .nav .menu {
   display: flex;
   list-style-type: none;

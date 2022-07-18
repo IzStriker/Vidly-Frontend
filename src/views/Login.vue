@@ -14,6 +14,9 @@
       <div class="row">
         <input type="submit" value="Login" required />
       </div>
+      <div class="row" style="text-align: center">
+        <router-link to="/register">Create an account here</router-link>
+      </div>
     </form>
   </div>
 </template>

@@ -15,6 +15,7 @@
 * {
   box-sizing: border-box;
 }
+
 body {
   font-family: sans-serif;
   height: 100%;
@@ -74,4 +75,14 @@ input[type='email'] {
 
 .error-message {
   color: red;
+}
+
+/* style links */
+a {
+  color: var(--ShadowLightBlue);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }
