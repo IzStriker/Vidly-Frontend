@@ -1,6 +1,7 @@
 export type AuthState = {
   token: string;
   user: UserType;
+  authenticated: boolean;
 };
 
 export type UserType = {
