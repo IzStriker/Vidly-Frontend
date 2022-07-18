@@ -5,7 +5,6 @@ import Register from '@/views/Register.vue';
 import { IRoutes, RouteNames } from '@/router/types';
 import store from '@/store';
 import { AuthGetters } from '@/store/auth/types';
-import { auth } from '@/store/auth';
 
 // Allow reference to routes without magic strings.
 export const pages: IRoutes = {

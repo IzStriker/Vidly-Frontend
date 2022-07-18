@@ -9,7 +9,7 @@
         <div class="align-right" v-if="authenticated">
           <li class="item">
             <router-link to="#">
-              First Last &lt;user@example.com&gt;
+              {{ userSummary }}
             </router-link>
           </li>
         </div>
@@ -35,7 +35,7 @@ import { defineComponent } from 'vue';
 import { mapGetters } from 'vuex';
 export default defineComponent({
   computed: {
-    ...mapGetters([AuthGetters.AUTHENTICATED]),
+    ...mapGetters([AuthGetters.AUTHENTICATED, AuthGetters.USER_SUMMARY]),
   },
 });
 </script>

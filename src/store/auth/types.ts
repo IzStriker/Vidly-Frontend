@@ -6,8 +6,8 @@ export type AuthState = {
 
 export type UserType = {
   id: string;
-  firstname: string;
-  lastname: string;
+  firstName: string;
+  lastName: string;
   email: string;
 };
 
@@ -22,4 +22,5 @@ export enum AuthMutations {
 
 export enum AuthGetters {
   AUTHENTICATED = 'authenticated',
+  USER_SUMMARY = 'userSummary',
 }

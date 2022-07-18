@@ -54,6 +54,9 @@ const getters: GetterTree<AuthState, RootState> = {
   [AuthGetters.AUTHENTICATED](state: AuthState): boolean {
     return state.authenticated;
   },
+  [AuthGetters.USER_SUMMARY](state: AuthState): string {
+    return `${state.user.firstName} ${state.user.lastName} <${state.user.email}>`;
+  },
 };
 
 export const auth: Module<AuthState, RootState> = {
