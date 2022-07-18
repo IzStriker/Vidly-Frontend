@@ -19,3 +19,7 @@ export enum AuthActions {
 export enum AuthMutations {
   LOGIN = 'Login',
 }
+
+export enum AuthGetters {
+  AUTHENTICATED = 'authenticated',
+}

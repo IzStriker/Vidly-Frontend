@@ -6,7 +6,14 @@
         <li class="item"><router-link to="#">New Rentals</router-link></li>
         <li class="item"><router-link to="#">Customers</router-link></li>
         <li class="item"><router-link to="#">Movies</router-link></li>
-        <div class="align-right">
+        <div class="align-right" v-if="authenticated">
+          <li class="item">
+            <router-link to="#">
+              First Last &lt;user@example.com&gt;
+            </router-link>
+          </li>
+        </div>
+        <div class="align-right" v-else>
           <li class="item">
             <router-link to="/register">Register</router-link>
           </li>
@@ -21,6 +28,18 @@
     </div>
   </div>
 </template>
+
+<script lang="ts">
+import { AuthGetters } from '@/store/auth/types';
+import { defineComponent } from 'vue';
+import { mapGetters } from 'vuex';
+export default defineComponent({
+  computed: {
+    ...mapGetters([AuthGetters.AUTHENTICATED]),
+  },
+});
+</script>
+t
 
 <style scoped>
 .nav {

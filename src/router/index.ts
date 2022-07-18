@@ -4,6 +4,8 @@ import Login from '@/views/Login.vue';
 import Register from '@/views/Register.vue';
 import { IRoutes, RouteNames } from '@/router/types';
 import store from '@/store';
+import { AuthGetters } from '@/store/auth/types';
+import { auth } from '@/store/auth';
 
 // Allow reference to routes without magic strings.
 export const pages: IRoutes = {
@@ -35,12 +37,13 @@ const router = createRouter({
 });
 
 router.beforeEach(to => {
+  const authenticated = store.getters[AuthGetters.AUTHENTICATED];
+
   // Only allow authenticated users to access public pages
-  if (!store.getters.isAuthenticated && !to.meta.public)
-    return { name: RouteNames.Login };
+  if (!authenticated && !to.meta.public) return { name: RouteNames.Login };
 
   // Don't allow authenticated users to access Login or Register
-  if (store.getters.isAuthenticated) {
+  if (authenticated) {
     if (to.name === RouteNames.Login || to.name === RouteNames.Register) {
       return false;
     }

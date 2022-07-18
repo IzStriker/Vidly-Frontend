@@ -1,5 +1,6 @@
 import {
   AuthActions,
+  AuthGetters,
   AuthMutations,
   AuthState,
   UserType,
@@ -50,7 +51,7 @@ const actions: ActionTree<AuthState, RootState> = {
 };
 
 const getters: GetterTree<AuthState, RootState> = {
-  isAuthenticated(state: AuthState): boolean {
+  [AuthGetters.AUTHENTICATED](state: AuthState): boolean {
     return state.authenticated;
   },
 };
