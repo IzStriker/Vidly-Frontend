@@ -1,3 +1,3 @@
-export type RootState = {
-  modules: any;
-};
+export interface RootState {
+  strict: boolean;
+}

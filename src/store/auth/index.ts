@@ -4,8 +4,14 @@ import { Module } from 'vuex';
 
 const state: AuthState = {
   token: '',
+  user: {
+    id: '',
+    firstname: '',
+    lastname: '',
+    email: '',
+  },
 };
 
-export const user: Module<AuthState, RootState> = {
+export const auth: Module<AuthState, RootState> = {
   state,
 };
