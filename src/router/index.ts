@@ -34,10 +34,17 @@ const router = createRouter({
   routes,
 });
 
-router.beforeEach((to, _) => {
+router.beforeEach(to => {
   // Only allow authenticated users to access public pages
   if (!store.getters.isAuthenticated && !to.meta.public)
     return { name: RouteNames.Login };
+
+  // Don't allow authenticated users to access Login or Register
+  if (store.getters.isAuthenticated) {
+    if (to.name === RouteNames.Login || to.name === RouteNames.Register) {
+      return false;
+    }
+  }
 });
 
 export default router;
