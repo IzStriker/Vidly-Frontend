@@ -10,6 +10,7 @@ export type UserType = {
   email: string;
 };
 
-export enum ActionTypes {
-  REGISTER = 'REGISTER',
+export enum AuthActions {
+  REGISTER = 'Register',
+  LOGIN = 'Login',
 }

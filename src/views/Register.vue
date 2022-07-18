@@ -42,7 +42,7 @@
 import { defineComponent } from 'vue';
 import { UserRegister, RegistrationError } from '@/models/user';
 import { mapActions } from 'vuex';
-import { ActionTypes } from '@/store/auth/types';
+import { AuthActions } from '@/store/auth/types';
 
 export default defineComponent({
   name: 'Register',
@@ -53,7 +53,7 @@ export default defineComponent({
     };
   },
   methods: {
-    ...mapActions([ActionTypes.REGISTER]),
+    ...mapActions([AuthActions.REGISTER]),
     async onSubmit() {
       this.errors = [];
       if (this.formData.password !== this.formData.confirmPassword) {
@@ -64,7 +64,7 @@ export default defineComponent({
       }
 
       try {
-        await this.REGISTER(this.formData);
+        await this.Register(this.formData);
       } catch (error: any) {
         if (error.response.data.message) {
           this.errors.push({ description: error.response.data.message });
@@ -84,9 +84,5 @@ export default defineComponent({
 
 .input-next-input {
   display: flex;
-}
-
-.error-message {
-  color: red;
 }
 </style>

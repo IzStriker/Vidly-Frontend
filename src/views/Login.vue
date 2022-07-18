@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <form class="form" @submit="onSubmit">
+    <form class="form" @submit.prevent="onSubmit">
       <h1>Login</h1>
       <div class="row">
         <label>Email</label>
@@ -10,6 +10,7 @@
         <label>Password</label>
         <input v-model="formData.password" type="password" required />
       </div>
+      <div class="error-message">{{ errorMessage }}</div>
       <div class="row">
         <input type="submit" value="Login" required />
       </div>
@@ -20,7 +21,8 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { UserLogin } from '@/models/user';
-import { loginUser } from '@/api';
+import { mapActions } from 'vuex';
+import { AuthActions } from '@/store/auth/types';
 
 export default defineComponent({
   name: 'Login',
@@ -31,13 +33,15 @@ export default defineComponent({
     };
   },
   methods: {
-    async onSubmit(e: Event) {
-      e.preventDefault();
-
+    ...mapActions([AuthActions.LOGIN]),
+    async onSubmit() {
       try {
-        let res = await loginUser(this.formData);
-      } catch (error) {
-        console.log(error);
+        this.errorMessage = '';
+        await this.Login(this.formData);
+      } catch (error: any) {
+        this.errorMessage = 'Incorrect Username or Password';
+        // clear form
+        this.formData = {} as UserLogin;
       }
     },
   },

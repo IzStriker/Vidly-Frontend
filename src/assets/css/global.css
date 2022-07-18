@@ -59,15 +59,19 @@ input {
   padding: 10px;
 }
 
-input[type="submit"] {
+input[type='submit'] {
   background-color: var(--ShadowDarkBlue);
   color: var(--ShadowLightBlue);
   border-color: var(--LightestBlue);
 }
 
-input[type="text"],
-input[type="password"],
-input[type="email"] {
+input[type='text'],
+input[type='password'],
+input[type='email'] {
   background-color: var(--ShadowDarkBlue);
   color: var(--ShadowLightBlue);
+}
+
+.error-message {
+  color: red;
 }
