@@ -39,7 +39,9 @@ router.beforeEach(to => {
   const authenticated = store.getters[AuthGetters.AUTHENTICATED];
 
   // Only allow authenticated users to access public pages
-  if (!authenticated && !to.meta.public) return { name: RouteNames.Login };
+  if (!authenticated && !to.meta.public) {
+    return { name: RouteNames.Login };
+  }
 
   // Don't allow authenticated users to access Login or Register
   if (authenticated) {

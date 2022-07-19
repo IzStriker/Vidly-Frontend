@@ -37,6 +37,7 @@ export default defineComponent({
   },
   methods: {
     ...mapActions([AuthActions.LOGIN]),
+
     async onSubmit() {
       try {
         this.errorMessage = '';
